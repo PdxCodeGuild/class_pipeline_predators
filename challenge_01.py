@@ -1,5 +1,5 @@
 again = 'y'
-print('\nLets find out if one integer is divisible by two others.')
+print('Lets find out it one integer is divisible by two others.')
 while again == 'y':
     numerator = int(input('\nEnter the numerator: '))
     denom_1 = int(input('Enter the first denominator: '))
@@ -11,10 +11,10 @@ while again == 'y':
         if check == True:
             print(f'\nYes, {numerator} is divisible by {denom_1} and {denom_2}.')
         else:
-            print(f'\nSorry, {numerator} is not divisible by {denom_1} and {denom_2}.')
+            print(f'\nSorry, {numerator}is not divisible by {denom_1} and {denom_2}.')
 
     is_divide_by(numerator, denom_1, denom_2)
 
-    again = str(input('\n"y" to continue or "n" to quit: '))
+    again = str(input('\n"y" to continue or "n" to quit.'))
     if again == 'n':
         break
