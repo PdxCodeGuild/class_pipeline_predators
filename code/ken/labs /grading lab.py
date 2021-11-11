@@ -20,15 +20,31 @@ Numeric Ranges:
 
 Find the specific letter grade (A+, B-, etc). You can check for more specific ranges using `if` statements, or use modulus `%` to get the ones-digit to set another string to `'+'`, `'-'`, or `' '`. Then you can concatenate that string with your grade string. 
 '''
-grade = 71 
+grade = 88
 
 if grade < 60:
     print('ya got a F')
-elif grade < 70:
+elif grade < 65:
+    print('ya got a D-')
+elif grade < 7:
     print('ya got a D')
-elif grade < 80:
+elif grade < 70:
+    print('ya got a D+')
+elif grade < 75:
+    print('ya got a C-')
+elif grade < 77:
     print('ya got a C')
-elif grade < 90:
+elif grade < 80:
+    print('ya got a C+')
+elif grade < 85:
+    print('ya got a B-')
+elif grade < 87:
     print('ya got a B')
+elif grade < 90:
+    print('ya got a B+')
+elif grade < 95:
+    print('ya got a A-')
+elif grade < 97:
+    print('ya got a A')
 else:
-    print("ya got an A")
+    print("ya got an A+")
