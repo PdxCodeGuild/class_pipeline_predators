@@ -45,3 +45,16 @@ coins  = {
 
 # then break down amount from position in number?....
 # can you index a float
+# look into modulas 
+#may if statement
+for i in range(20):
+    if i%2 == 1:
+        continue
+    print(i, end=' ')
+
+# Return quarters variable and so on 
+
+return quarters 
+return dime 
+return nickel 
+return pennies 
