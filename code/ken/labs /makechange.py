@@ -27,6 +27,15 @@ coins = [
 ]
 '''
 
+# then use a try exception to make sure they enter a float 
+while True:
+    try:
+        dollar_amount = float(input('enter a dollar amount: '))
+        break
+    except ValueError:
+        print('try again')
+print(dollar_amount)
+
 # Make a dictionary for coins 
 coins  = {
     'quarters': 25, 
@@ -34,5 +43,5 @@ coins  = {
     'penny': 1
     }
 
-the use a try exception to make sure they enter a float 
-then use the order to 
+# then break down amount from position in number?....
+# can you index a float
