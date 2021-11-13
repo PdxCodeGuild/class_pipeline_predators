@@ -1,4 +1,8 @@
-enter_score = int(input('Please enter your score: '))
+while True:
+    try:
+        enter_score = int(input('Please enter your score: '))
+        break
+    except: print('Try again, your score will be a number betwwen 0 to 100.')
 if enter_score < 60:
     print('F')
 elif enter_score < 70 and 0 <= (enter_score % 10) <= 3:
