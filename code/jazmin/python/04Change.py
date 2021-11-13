@@ -16,7 +16,6 @@ print(f'you have {dimes_left} dimes')
 leftover_dimes = dimes_left % 10
 print(leftover_dimes)
 
-
 nickles_left = leftover_dimes // 5
 print(f'you have {nickles_left} nickles')
 
@@ -24,7 +23,7 @@ leftover_nickes = nickles_left % 5
 print(leftover_nickes)
 
 pennies_left = leftover_nickes // 1
-print(f'you have {pennies_left} left')
+print(f'you have {pennies_left} pennies')
 
 
 
