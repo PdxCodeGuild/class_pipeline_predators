@@ -3,9 +3,9 @@ print()
 while True:
     try:
         score = int(input('Please enter your test score (0-100): '))
-        score = score(range(0, 100))
         break
-    except: print('please try again')
+    except: 
+        print('please try again')
 if score >= 90:
     grade = 'A'
 elif score >= 80 and score <= 89:

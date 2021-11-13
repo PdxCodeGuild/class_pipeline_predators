@@ -14,3 +14,4 @@ if pennies >= 5:
     pennies = pennies % 5
 if pennies >= 1:
     print(f'{int(pennies)} penny(s)')
+print()
