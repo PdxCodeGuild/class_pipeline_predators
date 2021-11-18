@@ -34,8 +34,6 @@ say_hello()
 > hello!
 > hello!
 
-
-
 ## Parameters
 
 You can specify parameters by listing variables in the parantheses of the function definition.
@@ -83,33 +81,165 @@ subtract(5, b=8) # -3 (a = 5, b = 8, c = 0)
 subtract(5, c=9) # -5 (a=5, b=1, c=9)
 subtract(5, c=9, b=8) # -12 (a=5, b=8, c=9)
 ```
+### Passing other functions
+
+Functions are first class citizens meaning they can be used anywhere as well as they can be passed as arguments to other functions!
+
+```python
+
+my_numbers = [1,2,3,4]
+
+def double_nums(num):
+    return num * 2
+
+def iterate_numbers(my_numbers):
+    for x in range(len(my_numbers)):
+        print(my_numbers[x])
+        my_numbers[x] = double_nums(my_numbers[x]) 
+
+iterate_numbers(my_numbers)
+print(my_numbers)
+
+```
+
+### Scope
+
+Scope determines when resources such as variables can be accessed.
+
+```python
+statement = "I'd like to learn more about scope"
+
+def print_statement():
+    print(statement)
+
+
+statement()
+
+
+def another_function():
+    statement = "I think scope is confusing"
+    another_phrase = "I think that tomorrow will be sunny"
+    print(statement)
+
+
+another_function()
+print(statement)
+print(another_phrase)
+```
+
+If you need to create a global variable, but are stuck in the local scope, you can use the `global` keyword.
+
+The global keyword makes the variable global.
+
+
+```python
+
+def a_function():
+  global y
+  y = 300
+
+a_function()
+## you'll need to call the function first
+
+print(y)
+## then this will work
+
+```
+
+### Closures
+
+A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function’s scope from an inner function.
+
+Requisites for a closure to exist:
+
+- We must have a nested function (function inside a function).
+- The nested function must refer to a value defined in the enclosing function.
+- The enclosing function must return the nested function.
+
+```python
+def outer_function(msg):
+    # This is the outer enclosing function
+
+    def inner_function():
+        # This is the nested function
+        print(msg)
+
+    return inner_function  # returns the nested function
+
+
+# Now let's try calling this function.
+# Output: Hello
+my_variable = outer_function("Hello")
+my_variable()
+```
+
+This is another more curios example:
+
+```python
+
+def adder(x):
+    def inner(y):
+        return x + y
+    return inner
+
+
+add5 = adder(5)
+add10 = adder(10)
+
+print(add5(2));  ## 7
+print(add10(2)); ## 12
+```
+
+`add5` and `add10` are both closures. They share the same function body definition, but store different lexical environments. In add5's lexical environment, x is 5, while in the lexical environment for add10, x is 10.
 
 ### \*args & \*\*kwargs
 
-When reading more advanced Python code, you might see functions written like the following:
+Both args and kwargs are great for times when you aren't sure in advance what aruments your function will need to take. Args is used when you aren't sure how many arguments there will be; kwargs is a dictionary containing any unspecified keyword arguments to your function. Let's see this in action:
+
+- Args
 
 ```python
-def print_movie_ratings(username, *args, **kwargs):
-    """Update the user’s ratings for movies.
-    Update movies from *args that are keys in **kwargs.
-    """
-    for arg in args:  # Loop through the tuple `args`
-        if arg in kwargs:  # Loop through keys of the `kwargs` dictionary
-            print(arg, kwargs[arg])
-
-print_movie_ratings('jane', 'Sharknado', 'Frozen', 'Transformers', Sharknado=3, Frozen=2, Fargo=5)
-
-""" Output is:
-Sharknado 3
-Frozen 2
-"""
+blog_1 = "I don't like the Beatles"
+blog_2 = "i'd like to travel more"
+blog_3 = "this is super awesome"
+lists = [1,2,3,4,5]
+ 
+def blogs(*args):
+    for x in args:
+        print(x)
+ 
+blogs(blog_1, blog_2)
 ```
 
-This syntax is used to create functions that can take a varying number of arguments.
+- Kwargs
 
+```python
+def fav_music(**kwargs):
+    for arg in kwargs:
+        print(arg, kwargs[arg])
+ 
+fav_music(alex = 'pop',  joe= 'rock', jack = 'classic' )
+```
+
+- Args and Kwargs
+
+```python
+blog_1 = 'first blog'
+blog_2 = "second blog"
+blog_3 = "third blog"
+lists = [1,2,3,4,5]
+
+def blogs(*args, **kwargs):
+    for x in args:
+        print(x)
+    for x in kwargs:
+        print(kwargs[x])
+ 
+blogs(blog_1,blog_2, cat='black')
+```
 _Note: The special thing about these variable names isn’t `args` and `kwargs`. It’s the `*` and `**`. You can name these arguments anything that’s a legal variable name, but by convention they’re named `*args` and `**kwargs`._
 
-Within the function above, `*args` is defined as a tuple of the positional arguments passed to the function that don’t have explicit names in our function signature. `**kwargs` is defined as a dictionary of any keyword arguments passed to the function that don’t match keywords in the function signature. You can find more information about both [here](http://www.saltycrane.com/blog/2008/01/how-to-use-args-and-kwargs-in-python/).
+You can find more information about both [here](http://www.saltycrane.com/blog/2008/01/how-to-use-args-and-kwargs-in-python/).
 
 
 
@@ -155,14 +285,6 @@ print(height)
 
 
 
-
-## Decorators
-
-
-TODO
-
-
-
 ## Recursion
 
 Functions can call other functions, producing a chain of invocation. Functions can even call themselves, this is called **recursion**. It's important to have a 'stop condition', otherwise this results in infinite recursion and you'll get a 'stack overflow'.
@@ -201,12 +323,20 @@ def binary_search(num, nums):
 
 ## Lambda Functions
 
-Lambda expressions are a shorter way to define functions and are written as `lambda arguments: expression`.
+Lambda is a reserved keyword that says : what follows is an anonymous function
 
 ```python
-a = lambda x,y: x + y
-print(a(5,4)) # 9
+lambda x:x + 1
+"as it is it won't work, so we assign it to a variable:"
 
-s = lambda x,y: x-y
-print(s(5,4)) # 1
+g = lambda x:x + 1
+print(g(2))
+ 
+my_sum = lambda a, b, c: a + b + c
+print(my_sum(1, 2, 3))
+
+cube = lambda x: x**3
+numbers = (1, 2, 3, 4)
+ 
+print(list(map(cube, numbers)))
 ```

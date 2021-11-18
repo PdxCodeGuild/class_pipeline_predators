@@ -3,6 +3,7 @@ quarter = .25
 dime = .10
 penny = 0.01
 
+
 #factoring in quarters
 quarters_results = total_amount // quarter
 
@@ -29,3 +30,4 @@ remainder_3 = round(remainder_2, 2) - penny_change
 
 results = f' You have {quarters_results} quarters, ' + f'{dime_results} dime, and' + f' {penny_results} penny'
 print(results)
+
