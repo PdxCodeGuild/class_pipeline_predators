@@ -199,7 +199,7 @@ Both args and kwargs are great for times when you aren't sure in advance what ar
 - Args
 
 ```python
-dblog_1 = "I don't like the Beatles"
+blog_1 = "I don't like the Beatles"
 blog_2 = "i'd like to travel more"
 blog_3 = "this is super awesome"
 lists = [1,2,3,4,5]
@@ -326,10 +326,10 @@ def binary_search(num, nums):
 Lambda is a reserved keyword that says : what follows is an anonymous function
 
 ```python
-lambda x:3 + 1
+lambda x:x + 1
 "as it is it won't work, so we assign it to a variable:"
 
-g = lambda x:3 + 1
+g = lambda x:x + 1
 print(g(2))
  
 my_sum = lambda a, b, c: a + b + c
