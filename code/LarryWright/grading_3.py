@@ -1,9 +1,8 @@
-# Part 1 
-number = input('Enter a grade')
+# grading
+
+number = input(' Enter a grade: ')
 
 number = int(number)
-
-print(number)
 
 
 if number >= 90:
@@ -21,4 +20,12 @@ elif number >= 60:
 else:
     print("Your grade is an F")
 
-# Part 2
+#exception 
+if number in range (70, 100):
+    print("You passed!")
+
+Exception
+if number in range(0, 69):
+    print("You Failed")
+
+print(number)
