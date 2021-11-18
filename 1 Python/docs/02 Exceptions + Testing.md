@@ -204,21 +204,24 @@ except: # catch anything!
 
 An optional else block may be added to the end of a try-catch block as well. The else block is executed if no exception is thrown.
 
-An optional finally block comes last. It is guaranteed to execute whether or not a exception is thrown. This is useful for closing files.
+```python
+try:
+  print("Hello")
+except:
+  print("Something went wrong")
+else:
+  print("Nothing went wrong")
+```
+The finally block, if specified, will be executed regardless if the try block raises an error or not.
 
 ```python
 try:
-    f = open('file.txt')
-    contents = f.read()
-    print(contents)
-except (IOError, OSError) as e:
-    print(e)
-else:
-    print('no exception occurred')
+  print(x)
+except:
+  print("Something went wrong")
 finally:
-    f.close()
+  print("The 'try except' is finished")
 ```
-
 
 
 ## Writing Custom Exceptions
