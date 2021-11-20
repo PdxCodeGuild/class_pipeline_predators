@@ -12,17 +12,12 @@ divid_1 = x / w
 print(x % y)
 
 
+
 def divided_by(x,y,z):  
     if (x % y == 0) and (x % z == 0):
-
         print("Divisible")
     else:
         print('Not divisible')    
-
-        print("Divisable")
-    else:
-        print('Not diisable')    
-
 
 ans = divided_by(-12,2,-6)
 print(ans)
