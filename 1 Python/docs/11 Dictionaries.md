@@ -124,6 +124,22 @@ names_and_fav_colors = [('Alice', 'red'), ('David', 'green')]
 print(dict(names_and_fav_colors))  #> {'Alice': 'red', 'David': 'green'}
 dict(names_and_fav_colors.items()) == names_and_fav_colors  #> True
 ```
+## Iteration
+
+```python
+fruits = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
+
+##method 1:
+
+for key,value in fruits.items():
+    print(key, value)
+
+##method 2:
+
+for fruit in fruits:
+    print(fruit, fruits[fruit])
+
+```
 
 # Dict Comprehensions
 
