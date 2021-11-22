@@ -1,6 +1,13 @@
 score = input('please enter your score: ')
 
-print(f'your score is {score}')
+try:
+    if int(score) <= 100 :
+        print (f'your score of {score} is valid')
+    else:
+        raise ValueError
+except:
+    ValueError
+    print('your entry is not valid. please try again.') 
 
 if int(score) >= 97 and int(score) <= 100 :
      print(' your grade is A+')
@@ -41,5 +48,3 @@ elif int(score) >= 60 and int(score) <= 69 :
 elif int(score) >= 0 and int(score) <= 59 :
     print('your letter grade is F')
 
-else: 
-    print('entry invalid, please re-enter your score')
