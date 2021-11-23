@@ -68,7 +68,9 @@ print(empl_1.email, empl_2.email )
 
 __init__ is a python "magic method"; it identifies a special kind of function called a constructor. Constructors are used to create class instances. So, when we define an __init__ method on a class, we can specify exactly how that class gets created. 
 
-## Classes - Methods
+## Methods
+
+**Classic Method**
 
 Methods are functions within your class:
 
@@ -84,4 +86,110 @@ class Employee:
  
  
 print(empl_1.fullname())
+```
+Let's have a look at some methods:
+
+**Class Method**
+
+Class methods do not take the instance as first arguments. They take the class
+
+```python
+class Person:
+   TITLES = ('Dr', 'Mr', 'Mrs', 'Ms')
+ 
+   def __init__(self, name, surname):
+       self.name = name
+       self.surname = surname
+ 
+   def fullname(self): # instance method
+       # instance object accessible through self
+       return "%s %s" % (self.name, self.surname)
+ 
+   @classmethod
+   def allowed_titles_starting_with(cls, startswith): # class method
+       # class or instance object accessible through cls
+       return [t for t in cls.TITLES if t.startswith(startswith)]
+ 
+ 
+print(Person.allowed_titles_starting_with("M"))
+```
+
+What are class methods good for? Sometimes there are tasks associated with a class which we can perform using constants and other class attributes, without needing to create any class instances. If we had to use instance methods for these tasks, we would need to create an instance for no reason, which would be wasteful. 
+
+**Static Method**
+
+Static methods do not take the instance or the class
+
+```python
+import requests
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    @staticmethod
+    def get_data():
+        data = requests.get('https://jsonplaceholder.typicode.com/users')
+        response = data.json()
+        return response
+
+
+person = Person('alex')
+
+print(person.get_data())
+```
+
+## Inheritance
+
+Inheritance allows us to inherit attributes and methods from a parent class. We can override or create new functionality without affecting the parent class
+
+```python
+class Animal:
+  def __init__(self, legs, color):
+    self.legs = legs
+    self.color = color
+
+  def make_sound(self):
+    print(f"I am a {self.legs} legged {self.color } animal!")
+
+#Use the Animal class to create an object, and then execute the make_sound method:
+class Rabbit(Animal):
+    def say_hello(self):
+        print('I am a cute rabbit')
+
+elephant = Animal("4", "grey")
+elephant.make_sound()
+rabbit = Rabbit("2", "white")
+rabbit.make_sound()
+rabbit.say_hello()
+```
+
+**overwrite method**
+
+```python
+class Animal:
+  def __init__(self, legs, color):
+    self.legs = legs
+    self.color = color
+
+  def make_sound(self):
+    print(f"I am a {self.legs} legged {self.color } animal!")
+
+# adding the init and super methods, so we can override inherited methods (make_sound) or add more
+class Rabbit(Animal):
+    def __init__(self, legs, color):
+        super().__init__(legs, color)
+
+    ## overriding the printname method
+    def make_sound(self):
+        print('roooarrrrrr')
+    def say_hello(self):
+        print('I am a cute rabbit')
+
+
+elephant = Animal("4", "grey")
+elephant.make_sound()
+rabbit = Rabbit("2", "white")
+rabbit.make_sound()
+rabbit.say_hello()
 ```
