@@ -1,4 +1,9 @@
-user_input = int(input('Please enter your number:  '))
+try:
+    user_input = int(input('Please enter your number:  '))
+except:
+    user_input = int(input('Incorrect response, please put your number:  '))
+
+
 
 if user_input >= 97 and user_input <= 100:
     print('You got an A+!')
@@ -24,4 +29,5 @@ elif user_input >= 65 and user_input <= 66:
     print('You got a D!')
 elif user_input >= 0 and user_input <= 65:
     print('You got an F!')
+
 
