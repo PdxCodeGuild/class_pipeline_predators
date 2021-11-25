@@ -14,6 +14,6 @@ for char in (entry_list):
     else:
         code_list.append(char)
         
-encription = ''.join(code_list)
-print(f'\nHere is your encription: {encription}')
+encryption = ''.join(code_list)
+print(f'\nHere is your encryption: {encryption}')
 print()
