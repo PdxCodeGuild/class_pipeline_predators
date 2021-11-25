@@ -68,7 +68,9 @@ print(empl_1.email, empl_2.email )
 
 __init__ is a python "magic method"; it identifies a special kind of function called a constructor. Constructors are used to create class instances. So, when we define an __init__ method on a class, we can specify exactly how that class gets created. 
 
-## Classes - Methods
+## Methods
+
+**Classic Method**
 
 Methods are functions within your class:
 
@@ -84,4 +86,212 @@ class Employee:
  
  
 print(empl_1.fullname())
+```
+Let's have a look at some methods:
+
+**Class Method**
+
+Class methods do not take the instance as first arguments. They take the class
+
+```python
+class Person:
+   TITLES = ('Dr', 'Mr', 'Mrs', 'Ms')
+ 
+   def __init__(self, name, surname):
+       self.name = name
+       self.surname = surname
+ 
+   def fullname(self): # instance method
+       # instance object accessible through self
+       return "%s %s" % (self.name, self.surname)
+ 
+   @classmethod
+   def allowed_titles_starting_with(cls, startswith): # class method
+       # class or instance object accessible through cls
+       return [t for t in cls.TITLES if t.startswith(startswith)]
+ 
+ 
+print(Person.allowed_titles_starting_with("M"))
+```
+
+What are class methods good for? Sometimes there are tasks associated with a class which we can perform using constants and other class attributes, without needing to create any class instances. If we had to use instance methods for these tasks, we would need to create an instance for no reason, which would be wasteful. 
+
+**Static Method**
+
+Static methods do not take the instance or the class
+
+```python
+import requests
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    @staticmethod
+    def get_data():
+        data = requests.get('https://jsonplaceholder.typicode.com/users')
+        response = data.json()
+        return response
+
+person = Person('alex')
+
+print(person.get_data())
+```
+
+## Inheritance
+
+Inheritance allows us to inherit attributes and methods from a parent class. We can override or create new functionality without affecting the parent class
+
+```python
+class Animal:
+  def __init__(self, legs, color):
+    self.legs = legs
+    self.color = color
+
+  def make_sound(self):
+    print(f"I am a {self.legs} legged {self.color } animal!")
+
+#Use the Animal class to create an object, and then execute the make_sound method:
+class Rabbit(Animal):
+    def say_hello(self):
+        print('I am a cute rabbit')
+
+elephant = Animal("4", "grey")
+elephant.make_sound()
+rabbit = Rabbit("2", "white")
+rabbit.make_sound() ##the rabbit class inherited the make_sound method
+rabbit.say_hello()
+```
+
+**override methods and add attributes with super()__**
+
+```python
+class Animal:
+  def __init__(self, legs, color):
+    self.legs = legs
+    self.color = color
+
+  def make_sound(self):
+    print(f"I am a {self.legs} legged {self.color } animal!")
+
+# adding the init and super methods, so we can add additional attributes
+class Rabbit(Animal):
+    def __init__(self, legs, color, speed): ##adding the new attribute speed
+        super().__init__(legs, color) ## referencing old attributes legs,color
+        self.speed = speed
+
+    ## overriding the make_sound method
+    def make_sound(self):
+        print(f'sqeeeeek!! I am running at {self.speed} miles per hour')
+    
+    ## defining a new method only for Rabbit
+    def say_hello(self):
+        print('I am a cute rabbit')
+
+
+elephant = Animal("4", "grey")
+elephant.make_sound()
+rabbit = Rabbit("2", "white", 10)
+rabbit.make_sound()
+rabbit.say_hello()
+```
+
+## 4 Pillars of OOP
+
+## Encapsulation 
+
+It describes the idea of wrapping data and the methods that work on data within one unit. This puts restrictions on accessing variables and methods directly and can prevent the accidental modification of data. To prevent accidental change, an object’s variable can only be changed by an object’s method. Those types of variables are known as private variable. 
+
+```python
+class Account:
+    def __init__(self):
+        # Protected member using double underscore __ 
+        self.__balance = 0
+    
+    def get_balance(self):
+        return self.__balance
+    
+    def deposit(self, amount):
+        self.__balance += amount
+        print( f'current balance is { self.__balance} ' )
+
+    def withdraw(self, amount):
+        if amount > self.__balance:
+            print( 'not enough funds' )
+        else:
+            self.__balance -= amount
+
+alex_account = Account()
+alex_account.deposit(1000)
+print(alex_account.__balance) ##will trow an error
+## You can still access the variable using the following syntax: instance._class__attribute
+
+```
+
+## Abstraction
+
+Abstraction is used to hide the internal functionality of the function from the users. The users only interact with the basic implementation of the function, but inner working is hidden. 
+
+In this example we're exposing to the end user only one main method, which is `send_mail`. The other methods are private and can not be accessed externally. 
+
+```python
+class Mail_sender:
+    def __init__(self):
+        pass
+    def send_mail(self):
+        self.__connect()
+        self.__authenticate()
+        self.__disconnect()
+    def __connect(self):
+        print('connecting')
+    def __disconnect(self):
+        print('disconnecting')
+    def __authenticate(self):
+        print('authenticating')
+
+outlook= Mail_sender()
+
+print(outlook.send_mail())
+```
+
+## Inheritance
+
+Inheritance is a mechanism that allows us to reuse code. See examples above.
+
+## Polymorphism
+
+Polymorphism is an ability (in OOP) to use a common interface for multiple forms (data types).
+
+Suppose, we need to color a shape, there are multiple shape options (rectangle, square, circle). However we could use the same method to color any shape. This concept is called Polymorphism.
+
+
+```python
+class Snake:
+
+    def run(self):
+        print("Snakes can't run")
+    
+    def swim(self):
+        print("Snakes can swim")
+
+class Cat:
+
+    def run(self):
+        print("Cats can run")
+    
+    def swim(self):
+        print("Cats can't swim")
+
+# common interface
+def run_test(animal):
+    animal.run()
+
+#instantiate objects
+viper = Snake()
+persian = Cat()
+
+# passing the object
+run_test(viper)
+run_test(persian)
+
 ```
