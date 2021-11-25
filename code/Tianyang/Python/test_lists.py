@@ -18,7 +18,7 @@ import pytest
 #     assert even_even([5, 5, 2]) == False
 
 
-#2
+# #2
 # def reverse(nums):
 #     nums_list = []
 #     return nums_list.reverse
@@ -26,7 +26,7 @@ import pytest
 # def test_reverse():
 #     assert reverse([1, 2, 3]) == [3, 2, 1]
 
-#3
+# #3
 # def common_elements(nums1, nums2):
 #     common_list = []
 #     for a in nums1:
@@ -35,8 +35,8 @@ import pytest
 #                 common_list.append(a)
 #     return common_list
 
-# # def test_common_elements():
-# #     assert common_elements([1, 2, 3], [2, 3, 4]) == [2, 3]
+# def test_common_elements():
+#     assert common_elements([1, 2, 3], [2, 3, 4]) == [2, 3]
 
 #4
 def combine(nums1, nums2):
@@ -46,6 +46,5 @@ def combine(nums1, nums2):
          com_list.append(nums2[a])
     return com_list
         
-# def test_combine():
-#     assert combine(['a', 'b', 'c'], [1, 2, 3]) == ['a', 1, 'b', 2, 'c', 3]
-print(combine(['a', 'b', 'c'], [1, 2, 3]))
+def test_combine():
+    assert combine(['a', 'b', 'c'], [1, 2, 3]) == ['a', 1, 'b', 2, 'c', 3]
