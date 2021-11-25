@@ -31,7 +31,7 @@ while sum(player_hand) < 21:
     choice = str(input("Do you want to hit or stay? "))
     if choice == "hit":
         player_hand.append(random.randint(1, 11))
-        print("Your hand is now" +  str(sum(player_hand)) + " with ", player_hand)
+        print("Your hand is now"  +  str(sum(player_hand)) +  " with ", player_hand)
     if choice == "stay":
         print("The dealers hand is "  + str(sum(dealer_hand)) +  " with ", dealer_hand)
         print("Your hand is " + str(sum(player_hand)) + " with ", player_hand)
