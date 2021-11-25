@@ -45,9 +45,7 @@ def test_opposite():
 #4
 import pytest
 def near_100(num):
-    if num > 100 and num - 10 < 10:
-        return True
-    elif num < 100 and 100 - num < 10:
+    if 90 < num < 110:
         return True
     else: 
         return False
@@ -57,7 +55,6 @@ def test_near_100():
     assert near_100(99) == True
     assert near_100(105) == True
     assert near_100(115) == False
-
 #5
 import pytest
 def maximum_of_three(a, b, c):
