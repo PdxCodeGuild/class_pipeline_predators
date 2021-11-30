@@ -34,26 +34,28 @@ def test_double_letters():
     assert double_letters('hello') == 'hheelllloo'
 
 
-'''
+
 # Count Letter
 # Count the number of letter occurances in a string
 
 
 def count_letter(letter, word):
-    ...
-
+    number =   word.count(letter)
+    return number
 
 def test_count_letter():
     assert count_letter('i', 'antidisestablishmentterianism') == 5
     assert count_letter(
         'p', 'pneumonoultramicroscopicsilicovolcanoconiosis') == 2
 
-'''
+
 # Latest Letter
 # Return the letter that appears the latest in the english alphabet.
 
 def latest_letter(word):
-    ...
+    new_word = str(sorted(word))
+    number = len(word) - 1
+    return new_word[number]
 
 
 def test_latest_letter():
@@ -64,25 +66,35 @@ def test_latest_letter():
 # Write a function that returns the number of occurances of 'hi' in a given string.
 
 def count_hi(text):
-    ...
+   return text.count('hi')
 
 
 def test_count_hi():
     assert count_hi('hihi') == 2
     assert count_hi('hello hi llama hill') == 2
 
-
+'''
 # Snake Case
 # Write a function that converts text to snake case (all lowercase, underscores for spaces, no special characters).
 
 def snake_case(text):
-    ...
+    new_text = text.lower()
+    new_text = new_text.replace(' ', '_')
+   
+    for x in new_text:
+       if x.isalpha() or x == '_':
+          continue
+       else:
+            new_text = new_text.replace(x,'')
+            print(new_text) 
+    return new_text
 
 
 def test_snake_case():
-    assert snake_case('Hello World!') == 'hello_world'
+    assert snake_case('Hello World!')  == 'hello_world'
     assert snake_case('This is another example.') == 'this_is_another_example'
 
+'''
 # Camel Case
 # Write a function that converts text to camel case (no spaces, no special characters, leading capitals except the first).
 
