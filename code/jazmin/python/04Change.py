@@ -25,6 +25,7 @@ print(leftover_nickes)
 pennies_left = leftover_nickes // 1
 print(f'you have {pennies_left} pennies')
 
+print('thank you!')
 
 
 '''
