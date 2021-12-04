@@ -26,23 +26,14 @@ keys = api_key()
 lat = float(input('what is the lat of your city: '))
 long = float(input('what is the long of your city: '))
 
-#Look into params
+
 #pass those answers into the request?
 #Use request to GET text from weather api
 try:
 #added params to turn response into json
-  response = requests.get(f'https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={long}&exclude=hourly,daily&appid={keys}', params={'format': 'json'})
+  response = requests.get(f'https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={long}&units=imperial&exclude=hourly,daily&appid={keys}', params={'format': 'json'})
   #Make into Json
   response = response.json()
-  #added loads to allow for data to be extracted ----- doesn't work I'd have to import json 
-  #response = response.loads(response.text)
-  #-----Testing---All-Works------
-  #print(response.text) # 76.105.187.182 
-  # print(response.url)
-  # print(response.text) # 76.105.187.182
-  # print(response.status_code) # 200
-  # print(response.encoding) # ISO-8859-1
-  # print(response.headers) # {'Content-Type': 'text/plain', 'Content-Length': '14', ...}
 except requests.exceptions.RequestException as e:
   print(e)
 
@@ -50,18 +41,23 @@ except requests.exceptions.RequestException as e:
 #print the timezone and weather main
 #returns a string not calling correctly 
 #calling response.text['timezone'] was wrong 
-weather = response["timezone"]
-
+user_city = response["timezone"]
+city_weather = response['current']['weather'][0]['description']
+city_temp = response['current']['temp']
 #print(weather)
+#print(city_weather)
 
-#test if input works
-#!!!!!!!print(first_question)!!!!!!!!! 
-#get information for portland and send it back
-#!!!!!!!!!!get weather api information!!!!!!!!!!! 
-#--------Come back here when done------------
-#Got API Key 
-#!!!!!!!!!!import API Key here!!!!!!!!!!!!!!
-#Then ask if they wanted to see the weather for another location
-#Then ask if they want to see another location 
-#If they say no quit the program 
+#print out weather in city 
+print(f'Looks like the weather in {user_city} is {city_weather}')
+
+next_question = input('would you like to know the temp?')
+
+if next_question == 'yes':
+  print(f'the current temp for {user_city} is {city_temp} degrees fahrenheit')
+  print('thanks byeee')
+else:
+  print('thanks byeee')
+
+
+
 
