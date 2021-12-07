@@ -3,7 +3,7 @@
 
 ### Bank Account Class
 
-- Create a Python class called BankAccount which represents a bank account, having as attributes: accountNumber (numeric type), name (name of the account owner as string type), balance.
+- Create a Python class called BankAccount which represents a bank account, having as attributes: account_number (integer), name (name of the account owner as string type), balance.
 - Create a constructor with parameters: account_number, name, balance.
 - Create a deposit() method which manages the deposit actions.
 - Create a withdrawal() method  which manages withdrawals actions.
