@@ -9,7 +9,7 @@ class Account:
         print(f'Account balance: {self.balance}')
 info = Account('Tianyang', 123456789, 50)
 info.display()
-class Account: 
+class Amount: 
     def __init__(self):
         self.__balance = 50
     def deposit(self, amount):
@@ -24,7 +24,7 @@ class Account:
     def bank_fee(self):
         self.__balance = 0.05*self.__balance
         print(f'Bank fee: {self.__balance}')
-tianyang_account = Account()
+tianyang_account = Amount()
 tianyang_account.deposit(1000)
 tianyang_account.withdraw(2000)
 tianyang_account.withdraw(500)
