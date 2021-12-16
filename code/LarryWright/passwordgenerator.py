@@ -1,3 +1,4 @@
+
 # Password Generator Lab #
 
 import string
@@ -12,5 +13,5 @@ n = letters + digits + puncuation
 n = []
 while len(n) < 10:
     n.append(random.choices(n))
-    
+
 print(n)
