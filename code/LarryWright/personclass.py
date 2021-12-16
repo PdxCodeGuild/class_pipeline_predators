@@ -1,3 +1,6 @@
+from _typeshed import Self
+
+
 class Person:
     def __init__(self, name, age):
         self.name = 'Larry'
@@ -9,3 +12,4 @@ class Student:
         self.favorite_hobby = 'football'
 def display(self):
         print(f'Name:'' {self.name},''Age:'' {self.age},''Favorite Hobby:''{self.favorite_hobby}')
+
