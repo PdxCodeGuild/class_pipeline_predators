@@ -1,0 +1,33 @@
+body {
+    background-color: coral;
+    color: blue;
+    margin: 25px 300px 75px 50px
+}
+h1 {color: black;
+    font-family: sans-serif;
+}
+
+h3 {
+    color: black;
+}
+
+h4 {
+    color: black;
+}
+
+a {
+    color: greenyellow;
+}
+
+q {
+    font-style: italic;
+    font-family: sans-serif; 
+}
+
+ul {
+    list-style-type: square;
+}
+
+img {
+    border-radius: 5%;
+}
