@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 450px;
+  height: 350px;
+  background-color: lightgray;
+  margin: 50px auto;
+  border: 2px solid gray;
+  border-radius: 20px;
+}
+
+.screen {
+  width: 350px;
+  height: 50px;
+  background-color: grey;
+  margin: 20px auto;
+}
+.control-area {
+  width: 350px;
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+}
+.main-pad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(50px, auto);
+  grid-gap: 10px;
+  column-gap: 1px;
+  width: 350px;
+  margin: auto;
+}
+.button {
+  width: 50px;
+  background-color: grey;
+}
+.red {
+  background: red;
+  grid-column: 4;
+  grid-row: 1;
+  margin-left: auto;
+}
+.addition {
+  background: green;
+  grid-column: 4;
+  grid-row: 2/4;
+  margin-left: auto;
+}
