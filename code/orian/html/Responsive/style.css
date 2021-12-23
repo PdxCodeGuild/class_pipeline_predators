@@ -1,0 +1,130 @@
+main {
+    position:absolute;
+    top: -10px;
+    z-index: -1;
+    
+    
+}
+
+
+div{
+   position:sticky; 
+   top: 10px;
+   
+   max-width:100% ; 
+   background:rgba(0, 0, 0, 0.2) ;
+   
+}
+ul{
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    justify-items: normal;
+    gap: 20px;
+
+    
+}
+li{
+    height: 50px;
+    width: 100px;
+    color: rgb(0,0,0);
+    text-align: center;
+    border-style: top;
+    border-radius: 2em;
+    row-gap: 10px;
+}
+#home{
+    background-color: royalblue;
+}
+#about{
+    background-color: sandybrown;
+}
+
+.contact {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    top: 150px;
+    left: 20px;
+    background:none;
+    color: rgb(250, 250, 250);
+    text-shadow: black;
+
+}
+#center_info{
+    justify-content: center;
+    border-radius: 0em;
+    border-width: 3px;
+    border-top:blanchedalmond;
+    border-right:blanchedalmond;
+    height: 100px;
+    gap: 0px;
+}
+#address {
+    background-color: rgba(0, 0, 0, 0.0);
+    color: seashell;
+    border-top: 2px solid gray;
+    border-right:2px solid gray;
+    border-radius: 0em;
+    width: 30%;
+    height: 100%;
+}
+#phone {
+    background-color: rgba(0, 0, 0, 0.0);
+    color: seashell;
+    border-top: 2px solid gray;
+    border-right:2px solid gray;
+    border-radius: 0em;
+    width: 20%;
+    height: 100%;
+}
+#fax {
+    background-color: rgba(0, 0, 0, 0.0);
+    color: seashell;
+    border-top: 2px solid gray;
+    border-right:2px solid gray;
+    border-radius: 0em;
+    width: 20%;
+    height: 100%;
+}
+#email {
+    background-color: rgba(0, 0, 0, 0.0);
+    color: seashell;
+    border-top: 2px solid gray;
+    border-radius: 0em;
+    width: 30%;
+    height: 100%;
+}
+.info {
+    list-style: none;
+    position: relative;
+    top: 470px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.map {
+    position:absolute;
+    top: 800px;
+    left:950px;
+    z-index: -1;
+}
+.page {
+    position: relative;
+    top: 700px;
+    width: 500px;
+    left: 2px;
+}
+footer {
+    position: absolute;
+    height: 200px;
+    width: 100%;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    font-size: 20px;
+    bottom: -1200px;
+    border: black ;
+    border-width: 2px;
+    background-color:rgb(63, 60, 60);
+}
