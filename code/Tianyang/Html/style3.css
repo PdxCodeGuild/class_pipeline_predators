@@ -1,0 +1,72 @@
+*{
+    margin: none;
+    padding: none;
+}
+.logo{
+    margin: 30px 0px;
+    border-radius: 40%;
+    padding: 0px 17px;
+}
+.list-group{
+    background-color:lightblue;
+    width:280px;
+    height:740px;
+}
+.list-group button{
+    background-color: lightgrey;
+    border: 1px solid black;
+    color:cadetblue;
+    padding:10px 20px;
+    width:260px;
+    height:50px;
+    border-radius: 5pt;
+    display: block;
+    font-size: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    opacity: 70%;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+.list-group button:hover{
+    background-color: black;
+    color: white;
+}
+.header{
+    position: absolute;
+    font-family: cursive;
+    left:25%;
+    margin-top: -720px;
+}
+.header p{
+    color: #C9C2C2;
+    margin-top: -20px;
+    margin-left: 20px;
+}
+dl{
+    position: absolute;
+    font-family: cursive;
+    left:25%;
+    margin-top: -600px;
+    margin-right: 100px;
+}
+dt{
+    font-size: 20px;
+}
+dd{
+    padding: 10px 0px;
+    line-height: 1.6;
+}
+.pic{
+    position: absolute;
+    left:30%;
+    margin-top: -370px;
+}
+img{
+    padding: 0px 75px;
+}
+.email{
+    position: absolute;
+    font-family: cursive;
+    left:25%;
+    margin-top: -40px;
+}
