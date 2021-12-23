@@ -1,0 +1,19 @@
+h1{
+    text-align: center;
+    border-bottom: solid;
+    box-shadow: 0px 5px 20px grey;
+}
+
+img{
+    height: 246px;
+    width: 200px;
+}
+
+.photo_card{
+    display: flex;
+}
+
+.photo_info{
+    display: flex;      
+    flex-flow: column; 
+}
