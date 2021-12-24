@@ -1,0 +1,75 @@
+.item1 {
+    grid-area: display;
+}
+
+.item2 {
+    grid-area: seven;
+}
+
+.item3 {
+    grid-area: eight;
+}
+
+.item4 {
+    grid-area: nine;
+}
+
+.item5 {
+    grid-area: four;
+}
+
+.item6 {
+    grid-area: five;
+}
+
+.item7 {
+    grid-area: six;
+}
+
+.item8 {
+    grid-area: one;
+}
+
+.item9 {
+    grid-area: two;
+}
+
+.item10 {
+    grid-area: three;
+}
+
+.item11 {
+    grid-area: button;
+}
+
+.item12 {
+    grid-area: button2;
+}
+
+.grid-container {
+    display: grid;
+    grid-gap: 10px;
+    grid-template:
+        'display display display display'
+        'seven eight nine button'
+        'four five six button2'
+        'one two three button2';
+    grid-gap: 20px; 
+    background-color:royalblue;
+    padding: 20px;
+}
+
+.grid-container>div {
+    background-color:bisque;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 45px;
+}
+
+.main {
+    background-color:royalblue;
+    border-radius: 10px;
+    padding: 10px;
+    height: 550px;
+    width: 550px
+}
