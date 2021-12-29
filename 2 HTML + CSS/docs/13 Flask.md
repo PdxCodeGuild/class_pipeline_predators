@@ -15,6 +15,16 @@ Flask is a light-weight web application framework written in Python. It performs
 
 ## Setup
 
+Before installing Flask, activate a virtual environment:
+
+For Mac users:
+
+```bash
+python3 -m venv env
+source env/bin/activate
+```
+Link for [Windows users](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/)
+
 You can install Flask with `pip install flask`. The [official flask quickstart](https://flask.palletsprojects.com/en/1.1.x/quickstart/) provides walkthrough of flask's major features.
 
 Below is a minimal Flask application, it receives a request at `localhost:5000/` and returns a response that simply contains "Hello World!". Copy-paste this code into a file `app.py`.
