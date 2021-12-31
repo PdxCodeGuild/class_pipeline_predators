@@ -1,0 +1,18 @@
+nav{
+    display: flex;
+    justify-content: flex-ends;
+    background-color: aqua;
+}
+
+.divi_den{
+    width: 93px;
+    height: 55px;
+    background-color: olivedrab;
+}
+
+.divi_den_pro{
+    width: 93px;
+    height: 60px;
+    background-color: brown;
+}
+
