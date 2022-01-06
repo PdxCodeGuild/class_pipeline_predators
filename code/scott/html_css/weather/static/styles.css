@@ -1,0 +1,89 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* background-color: slategray; */
+    background-image: url('https://www.ecicomfort.com/hs-fs/hub/247171/file-2326329779-jpg/noaa-weather-moving-backwards.jpg?width=1120&name=noaa-weather-moving-backwards.jpg'); 
+    margin: 0px;
+    text-align:center;
+}
+
+.title {
+    font-size: 30pt;
+    font-weight: bold;
+}
+
+.landing {
+    background-image: url('https://www.ecicomfort.com/hs-fs/hub/247171/file-2326329779-jpg/noaa-weather-moving-backwards.jpg?width=1120&name=noaa-weather-moving-backwards.jpg'); 
+}
+
+img {
+    width: 100%;
+    height: auto;
+    flex-grow: inherit;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    flex-wrap: wrap;
+    margin: 20px;
+    
+}
+
+.box {
+    background-color: rgb(255, 255, 255, .75);
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    height: 270px;
+    width: 270px;
+    text-align: center;
+    line-height: 1.75;
+    font-size: 14pt;
+}
+.title {
+    margin: -350px 0px 0px 30px;
+    color: white;
+}
+
+@media only screen and (max-width: 600px) {
+    .title {
+        margin: -320px 0px 0px 30px;
+        color: white;
+    }
+}
+  
+@media only screen and (min-width: 650px) {
+    .title {
+        margin: -420px 0px 0px 30px;
+        color: white;
+    }
+}
+  
+@media only screen and (min-width: 750px) {
+    .title {
+        margin: -520px 0px 0px 30px;
+        color: white;
+    }
+}  
+  
+@media only screen and (min-width: 880px) {
+    .title {
+        margin: -620px 0px 0px 30px;
+        color: white;
+    }
+} 
+  
+@media only screen and (min-width: 1050px) {
+    .title {
+        margin: -720px 0px 0px 30px;
+        color: white;
+    }
+} 
+    
+@media only screen and (min-width: 1200px) {
+    .title {
+        margin: -820px 0px 0px 30px;
+        color: white;
+    }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='../static/styles.css'>
+    <title>Weather</title>
+</head>
+
+<body>
+    {% if cur_con== "Rain" %}
+    <img src='https://img.jakpost.net/c/2018/09/07/2018_09_07_53245_1536304041._large.jpg'>
+    {% elif cur_con== "Mist" %}
+    <img src='https://costa-rica-guide.com/wp-content/uploads/2013/05/0866-P1020537.jpg'>
+    {% elif cur_con== "Snow" %}
+    <img src='https://image.freepik.com/free-photo/christmas-background-with-snowy-landscape-snowflake-border_1048-13480.jpg'>
+    {% elif cur_con== "Clear" %}
+    <img src='https://auroralabsnorway.com/blog/wp-content/uploads/2020/05/sun-3588618_1920.jpg'>
+    {% elif cur_con== "Clouds" %}
+    <img src='https://www.princeton.edu/sites/default/files/styles/full_2x/public/images/2018/01/clouds-19.jpg?itok=7jputHX1'>
+    {% else %}
+    <img src='https://www.ecicomfort.com/hs-fs/hub/247171/file-2326329779-jpg/noaa-weather-moving-backwards.jpg?width=1120&name=noaa-weather-moving-backwards.jpg'>
+    {% endif %}
+
+    <div class=title>
+        {{location}}
+    </div>
+
+    <main>
+        <div class=box>
+            <h3>Coordinates</h3><br>
+            Longitude: {{long}}°<br>
+            Latitude: {{lat}}°
+        </div>
+        <div class=box>
+            <h3>Current Weather</h3><br>
+            {{cur_con}}<br>
+            {{cur_dis}}
+        </div>
+        <div class=box>
+            <h3>Temperture</h3><br>
+            Current: {{temp}}°<br>
+            Feels like: {{feel_temp}}°<br>
+            High: {{max_temp}}°<br>
+            Low: {{min_temp}}°
+        </div>
+        <div class=box>
+            <h3>Other Factors</h3><br>
+            Humidity: {{humidity}}%<br>
+            Wind speed: {{wind}} mph<br>
+        </div>
+    </main>
+</body>
+
+</html>
