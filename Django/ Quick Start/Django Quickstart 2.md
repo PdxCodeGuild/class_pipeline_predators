@@ -13,7 +13,7 @@ There are different ways to define a relationship between elements in the databa
 
 
 
-1) `Many-to-one relationships`. This can be the relationship between a car manufacturer and a car. A manufacturer can build different cars. But all the cars have one manufacturer in common.
+1. `Many-to-one relationships`. This can be the relationship between a car manufacturer and a car. A manufacturer can build different cars. But all the cars have one manufacturer in common.
 
 ```python
 
@@ -27,7 +27,7 @@ class Car(models.Model):
 
 ```
 
-2) `Many-to-many relationships`. For example, a Pizza has multiple Topping objects. A Topping can be on multiple pizzas and each Pizza has multiple toppings – here’s how you’d represent that:
+2. `Many-to-many relationships`. For example, a Pizza has multiple Topping objects. A Topping can be on multiple pizzas and each Pizza has multiple toppings – here’s how you’d represent that:
 
 ```python
 
@@ -40,7 +40,7 @@ class Pizza(models.Model):
     toppings = models.ManyToManyField(Topping)
 ```
 
-3) `One-to-one relationships`  A OneToOneField would be like an Engine, where a Car object can have one and only one engine.`
+3. `One-to-one relationships`  A OneToOneField would be like an Engine, where a Car object can have one and only one engine.`
 
 ```python
 class Engine(models.Model):
@@ -67,13 +67,11 @@ Go to the your app folder and inside the models.py file add a model. The followi
 
 ```python
 from django.db import models
-from django.contrib.auth.models import User
 
 class Blog(models.Model):
         title = models.CharField(max_length = 200)
         text = models.TextField(max_length = 500)
         pub_date = models.DateField()
-        user = models.ForeignKey(User, on_delete = models.CASCADE, null = True, blank = True)
 
         def __str__(self):
             return self.title

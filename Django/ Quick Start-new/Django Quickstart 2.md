@@ -13,7 +13,7 @@ There are different ways to define a relationship between elements in the databa
 
 
 
-1) `Many-to-one relationships`. This can be the relationship between a car manufacturer and a car. A manufacturer can build different cars. But all the cars have one manufacturer in common.
+1.  `Many-to-one relationships`. This can be the relationship between a car manufacturer and a car. A manufacturer can build different cars. But all the cars have one manufacturer in common.
 
 ```python
 
@@ -27,7 +27,7 @@ class Car(models.Model):
 
 ```
 
-2) `Many-to-many relationships`. For example, a Pizza has multiple Topping objects. A Topping can be on multiple pizzas and each Pizza has multiple toppings – here’s how you’d represent that:
+2. `Many-to-many relationships`. For example, a Pizza has multiple Topping objects. A Topping can be on multiple pizzas and each Pizza has multiple toppings – here’s how you’d represent that:
 
 ```python
 
@@ -40,7 +40,7 @@ class Pizza(models.Model):
     toppings = models.ManyToManyField(Topping)
 ```
 
-3) `One-to-one relationships`  A OneToOneField would be like an Engine, where a Car object can have one and only one engine.`
+3. `One-to-one relationships`  A OneToOneField would be like an Engine, where a Car object can have one and only one engine.`
 
 ```python
 class Engine(models.Model):
@@ -122,8 +122,8 @@ Because the Article database table is linked to the Author table via Foreign Key
 
 ## Quick Lab: 
 
-1) Create a new Author instance with your name
-2) Create a new articles and link them to your profile and to Pauly D's profile.
+1. Create a new Author instance with your name
+2. Create a new articles and link them to your profile and to Pauly D's profile.
 
 Filtering:
 

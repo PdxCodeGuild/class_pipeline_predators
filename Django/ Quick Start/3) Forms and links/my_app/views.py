@@ -23,5 +23,5 @@ def add_post(request):
         title = request.POST['title']  
         text = request.POST['text']    
         pub_date = request.POST['pub_date']
-        blogs = Blog.objects.create(title = title, text = text, pub_date = pub_date)
+        Blog.objects.create(title = title, text = text, pub_date = pub_date)
         return redirect('posts')
