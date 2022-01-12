@@ -16,7 +16,6 @@ urlpatterns = [
 
 ```python
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from .models import Blog
 
 def blog_posts(request):
@@ -48,7 +47,7 @@ def add_post(request):
 {% extends 'base.html' %}
 {% block content %}
 <ul>
-<a href="http://localhost:8000/add">add a blog post</a>
+<a href="{% url 'add_posts' %}">add a blog post</a>
   {% for post in blogs %}
   <p>Title: {{ post.title }}</p>
   <p>ID: {{ post.id }}</p>
