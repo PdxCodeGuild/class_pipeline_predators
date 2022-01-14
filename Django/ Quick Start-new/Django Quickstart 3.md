@@ -45,9 +45,8 @@ def add_blog_post(request):
         title = request.POST['title']
         text = request.POST['text']
         pub_date = request.POST['pub_date']
-        author = request.POST['author']
-        result = Author.objects.get(id = author)
-        Article.objects.create(author = result, title = title, text = text, pub_date = pub_date)
+        author = Author.objects.get(id=request.POST['author'])
+        Article.objects.create(author = author, title = title, text = text, pub_date = pub_date)
         return redirect('view_all')
 
 """
