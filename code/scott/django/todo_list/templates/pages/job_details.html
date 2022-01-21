@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container mt-5">
+  <a href="{% url 'all'%}"><h3>Back to all jobs</h3></a>
+  <ul class="list-group mt-4">
+    <li class="list-group-item"><h6>Job:</h6>{{job.todo_item}}</li>
+    <li class="list-group-item"><h6>Description:</h6>{{job.text}}</li>
+    <li class="list-group-item"><h6>Created:</h6>{{job.create_date}}</li>
+    <li class="list-group-item"><h6>Finish by:</h6>{{job.finish_date}}</li>
+    <li class="list-group-item"><h6>Completed:</h6>{{job.completed}}</li>
+  </ul><br>
+  <a href="{% url 'update' job.id%}" class="btn btn-warning">Update</a>
+  
+  <a href="{% url 'remove' job.id%}" class="btn btn-danger">Delete</a>
+</div>
+{% endblock %}
