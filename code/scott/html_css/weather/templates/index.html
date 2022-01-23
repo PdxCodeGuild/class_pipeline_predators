@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='./static/styles.css'>
+    <title>Weather</title>
+</head>
+
+<body class= landing>
+    <main>
+        <div class=box>
+            <!-- What's my -->
+            <h2>Weather?</h2>
+            <form action="/weather/" method="post">
+                <label for="selected_city">City Name:</label><br>
+                <input type="text" name="selected_city" placeholder='portland'><br>
+                <label for="selected_state">State Name:</label><br>
+                <input type="text" name="selected_state" placeholder='us-or'><br>
+                <button type="submit">submit</button><br>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

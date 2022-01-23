@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container mt-5">
+  <h3>Add to List</h3>
+    <form class="mt-3" action="{%url 'add_item' %}" method="POST">
+      {% csrf_token %}
+      <div id="author-form" class="form-group">
+        <h6>Job:</h6>
+        <input
+          type="text"
+          class="form-control"
+          name="todo_item"
+          
+        /></br>
+        <h6>Description:</h6>
+        <textarea
+          class="form-control"
+          rows="5"
+          name="text"
+          
+        ></textarea></br>
+        <h6>Created:</h6><input
+          type="date"
+          class="form-control w-25"
+          name="create_date"
+        /><br>
+        <h6>Finish by:</h6>
+        <input
+          type="date"
+          class="form-control w-25"
+          name="finish_date"
+        /><br>
+        <h6>Completed:</h6><select
+            name="completed">
+            <option value="True">True</option>
+            <option value="False" selected>False</option>
+            </select><br>
+        <!-- <input
+          class="form-check-input mt-0"
+          type="checkbox"
+          name='completed'
+        />Completed<br> -->
+        <button type="submit" class="btn btn-primary mb-2 mt-3">Submit</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

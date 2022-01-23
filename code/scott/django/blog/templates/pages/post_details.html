@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container mt-5">
+  <a href="{% url 'view_all'%}"><h3>Back to all articles</h3></a>
+  <ul class="list-group mt-4">
+    <li class="list-group-item">Post ID: {{post.id}}</li>
+    <li class="list-group-item">{{ post.text }}</li>
+    <li class="list-group-item">Pub Date: {{post.pub_date}}</li>
+  </ul>
+</div>
+{% endblock %}

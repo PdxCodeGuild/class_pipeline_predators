@@ -1,0 +1,139 @@
+body {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.item1 {
+    grid-area: display;
+}
+
+.item2 {
+    grid-area: seven;
+}
+
+.item3 {   
+    grid-area: eight;
+}
+
+.item4 {
+    grid-area: nine;
+}
+
+.item5 {
+    grid-area: four;
+}
+
+.item6 {
+    grid-area: five;
+}
+
+.item7 {
+    grid-area: six;
+}
+
+.item8 {
+    grid-area: one;
+}
+
+.item9 {
+    grid-area: two;
+}
+
+.item10 {
+    grid-area: three;
+}
+
+.item11 {
+    grid-area: button;
+}
+
+.item12 {
+    grid-area: button2;
+}
+
+.grid-container {
+    display: grid;
+    grid-gap: 10px;
+    grid-template:
+        'display display display display'
+        'seven eight nine button'
+        'four five six button2'
+        'one two three button2';
+    grid-gap: 20px; 
+    background-color:royalblue;
+    padding: 20px;
+}
+
+.grid-container>div {
+    background-color:bisque;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 45px;
+}
+
+.main {
+    background-color:royalblue;
+    border-radius: 10px;
+    padding: 10px;
+    height: 550px;
+    width: 550px
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 30px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 40px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    transition: background, border-radius, color;
+    transition-duration: 1s, .5s, 1s;
+    transition-delay: 0s, .5s, .5s;
+    box-shadow: -5px 5px 15px 0px rgba(0,0,0,0.55);
+}
+
+.button2 {
+    border: none;
+    color: black;
+    padding: 30px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 40px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color:bisque;
+    transition: background, border-radius, color;
+    transition-duration: 1s, .5s, 1s;
+    transition-delay: 0s, .5s, .5s;
+    box-shadow: -5px 5px 15px 0px rgba(0,0,0,0.55);
+}
+
+.button:hover {
+    background:firebrick;
+    border-radius: 50%;
+    color: black;
+    animation-name: spin;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-delay: 1s;
+    box-shadow: none;
+}
+
+.button2:hover {
+  background:firebrick;
+  border-radius: 50%;
+  color: white;
+}
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
