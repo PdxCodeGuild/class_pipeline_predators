@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container mt-5">
+    <h3>Update List</h3>
+  
+    {% for url in urls %}
+    
+    <li class="list-group-item">
+      {{url.url_name}}
+      <br>
+      <a href="{% url 'remove' url.id%}" class="btn-sm btn-danger">Delete</a>
+    </li>
+  
+    {% endfor %}
+  </div>
+{% endblock %}
