@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block content %}
+<a href="{% url 'todo_post'%}">Add a todo item</a>
+
+  {% for todo in todos %}
+  <p>Subject: {{ todo.text }}</p>
+  <p>Created Date: {{todo.created_date}}</p>
+  <p>Completed Date: {{todo.completed_date}}</p>
+  <p>If complete: {{todo.status}}</p>>
+  {% endfor %}
+
+{% endblock %}
