@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+<form action= "{% url 'delete_view' ord.id %}" method="POST" >
+    {% csrf_token %} 
+<div class="container mt-5">
+  <a href="{% url 'sumary'%}"><h3>Back to sumary</h3></a>
+  <ul>
+    <p>ID: {{ ord.id }}</p>
+    <p>Description: {{ ord.text }}</p>
+    <p>Created Date: {{ord.created_date}}</p>
+    <p>Completed Date: {{ord.completed_date}}</p>
+    <p>If complete: {{ord.status}}</p>>
+  </ul>
+</div>
+<input class="btn btn-default" type="submit" value="Delete">
+</form>
+{% endblock %}

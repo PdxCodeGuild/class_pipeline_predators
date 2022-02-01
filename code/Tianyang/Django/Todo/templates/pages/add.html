@@ -1,0 +1,16 @@
+{% extends 'base.html' %}{% block content %}
+<form method="POST">
+    {% csrf_token %} Text: <br />
+    <textarea name="text" id="" cols="30" rows="10" placeholder="Discription"></textarea><br />
+    Created date: <br />
+    <input type="date" id="start" name="created_date" value="2022-01-01" min="2018-01-01" max="2030-12-31"><br />
+    Completed date: <br/>
+    <input type="date" id="start" name="completed_date" value="2022-01-01" min="2018-01-01" max="2030-12-31"><br />
+    Completed:
+    <select class="form-control" name="status">
+        <option>Yes</option>
+        <option>No</option>
+      </select><br/>
+    <input type="submit" />
+</form>
+{% endblock %}
