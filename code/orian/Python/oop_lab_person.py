@@ -25,7 +25,7 @@ j = Student('Jane', 35)
 
 j.stu_mem()
 j.name_age()
-o.name_age
+o.name_age()
 
 
 
