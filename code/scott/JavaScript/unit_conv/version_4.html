@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const number = prompt('Enter the distance:')
+        const in_unit = prompt('Enter the input units: "in, ft, yd, mi, m or km":')
+        const out_unit = prompt('Enter the output units: "in, ft, yd, mi, m or km":')
+        const units = {
+            "in" : .0254,
+            "ft" : .3048,
+            "yd" : .9144,
+            "mi" : 1609.34,
+            "m" : 1,
+            "km" : 1000
+        }
+        meters = units[in_unit] * number
+        result = meters / units[out_unit]
+        console.log(number+" "+in_unit+" is "+result+" "+out_unit)
+    </script>
+</body>
+</html>
