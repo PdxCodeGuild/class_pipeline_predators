@@ -30,20 +30,20 @@ The following code demonstrates how each of these are used:
 <script>
   const a = document.getElementById("mydiv");
   const b = document.getElementsByTagName("div");
-  console.log(bs.length); // 3
-  Array.from(bs).map(function (item) {
+  console.log(b.length); // 3
+  Array.from(b).map(function (item) {
     //allows you to iterate from a HTML collection list
     console.log(item);
   });
   const c = document.getElementsByName("adiv");
-  console.log(cs.length); // 2
-  Array.from(cs).map(function (item) {
+  console.log(c.length); // 2
+  Array.from(c).map(function (item) {
     //allows you to iterate from a Node list
     console.log(item);
   });
   const d = document.querySelector("#mydiv");
   const e = document.querySelectorAll(".myclass");
-  console.log(es.length); // 2
+  console.log(e.length); // 2
 </script>
 ```
 
