@@ -5,7 +5,7 @@ const masterList = masterString.split('');
 let entryPhrase = prompt('Enter your word or phrase to be encrypted:');
 const entryList = entryPhrase.split('');
 // console.log(entryList);
-
+let x = 0
 for (x = 0; x < entryList.length; x++) {
     index = masterList.indexOf(entryList[x]);
         console.log(index);
