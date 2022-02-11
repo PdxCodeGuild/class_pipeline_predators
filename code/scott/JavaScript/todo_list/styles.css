@@ -1,0 +1,16 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h3 {
+    color: darkgreen;
+}
+li:hover {
+    color:darkred;
+    cursor: pointer;
+}
+h5 {
+    font-style: italic;
+}
+ul.a {
+    list-style-type: circle;
+}
