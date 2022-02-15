@@ -1,0 +1,16 @@
+
+*{
+    background-color: lightgre
+
+}
+.delete{
+    background-color: orangered;
+}
+.complete{
+    background-color: lightskyblue;
+}
+
+#compli .complete{
+   display: none;
+}
+
