@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>Click me</button>
+    <script>
+      const paragraph = document.createElement("p");
+
+      fetch("https://api.chucknorris.io/jokes/random")
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          paragraph.innerText = data.value;
+          // console.log(data.value)
+          console.log(paragraph);
+          document.body.appendChild(paragraph);
+        });
+      console.log(paragraph);
+    </script>
+  </body>
+</html>
