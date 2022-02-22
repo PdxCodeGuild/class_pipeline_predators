@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block content %}
+<div>
+  <a href="{% url 'view_all_posts'%}">
+    <h3>Back to all posts</h3>
+  </a>
+  <p>
+  {{ post.author }}<br>
+  {{post.pub_date}}<br>
+  {{ post.title }}<br>
+  {{ post.text }}
+  </p>
+</div>
+{% endblock %}

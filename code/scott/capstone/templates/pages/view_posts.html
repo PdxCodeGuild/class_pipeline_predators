@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+<a href='/add_post/'>Add Post</a><br><br>
+<a href='/index/'>Index</a><br>
+<div>
+  <h3>All Articles</h3>
+  {% for post in articles reversed %}
+
+  <p>
+  {{post.id}}<br>
+  {{post.author}}<br>
+  {{post.pub_date}}<br>
+  <a href="{% url 'details' post.id%}">{{post.title}}</a>
+  </p>
+
+  {% endfor %}
+</div>
+{% endblock %}
