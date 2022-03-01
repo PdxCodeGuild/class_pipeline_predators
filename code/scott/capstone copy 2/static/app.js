@@ -1,12 +1,14 @@
-console.log('hello')
+
+console.log(googleKey)
 const propNum = document.getElementById("title")
 const propertyNum = propNum.getAttribute("prop_num")
 
 fetch(`http://127.0.0.1:8000/api/property/${propertyNum}`)
   .then(response => response.json())
   .then(data => {
-    console.log(data)
-    const { latX, lngX } = data
+    // console.log(data.latitude, data.longitude)
+    const latX= data.latitude
+    const lngX= data.longitude
     initMap(latX, lngX)
   });
 

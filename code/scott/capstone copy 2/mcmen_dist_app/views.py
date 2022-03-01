@@ -1,4 +1,6 @@
+
 from django.shortcuts import render, redirect
+import requests
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required, permission_required
@@ -6,7 +8,9 @@ from django.contrib import messages
 from mcmen_dist_app.models import Property
 from mcmen_dist_app.models import Driver
 from mcmen_dist_app.models import Route
-from mcmen_dist_app.models import Article 
+from mcmen_dist_app.models import Article
+from decouple import config
+# from . models import Image
 #--> Rest
 from rest_framework.decorators import api_view
 from rest_framework import serializers, status
@@ -44,7 +48,9 @@ def add_property(request):
     if request.method == 'GET': 
         return render(request, 'pages/add_property.html')
     elif request.method == 'POST': 
-        code = request.POST['code']  
+        code = request.POST['code']
+        latitude = request.POST['latitude']
+        longitude = request.POST['longitude']   
         name = request.POST['name']
         phone_num = request.POST['phone_num']
         address = request.POST['address']
@@ -55,7 +61,7 @@ def add_property(request):
         brewer = request.POST['brewer']
         delivery = request.POST['delivery']
         notes = request.POST['notes']
-        Property.objects.create(code = code, name = name, address = address,
+        Property.objects.create(code = code, latitude = latitude, longitude = longitude, name = name, address = address,
         city = city, state = state, zipcode = zipcode, manager = manager, 
         brewer = brewer, delivery = delivery, notes = notes, phone_num = phone_num)
         return redirect('admin_page')
@@ -103,7 +109,7 @@ def add_blog_post(request):
     authors = Driver.objects.all()
     context = {'authors': authors} 
     if request.method == 'GET':
-        return render(request, 'pages/add_blog_post.html', context) ##passing the list of authors to the page
+        return render(request, 'pages/add_blog_post.html', context)
     elif request.method == 'POST':
         title = request.POST['title']
         text = request.POST['text']
@@ -122,7 +128,16 @@ def post_details(request, id):
 
 def prop_details(request, id):
     prop = Property.objects.get(id = id)
-    context= {'prop': prop}
+    latX= prop.latitude
+    lngX= prop.longitude
+    key= config("WEATHER_KEY")
+    # print('coordinates ',latX, lngX)
+    response = requests.get(f'http://api.openweathermap.org/data/2.5/weather?lat={latX}&lon={lngX}&units=imperial&appid={key}')
+    weather_data = response.json()
+    # print(weather_data)
+    main= weather_data['main']
+    weather= weather_data['weather'][0]
+    context= {'prop': prop, 'main': main, 'weather': weather}
     return render(request, 'pages/prop_details.html', context)
 
 @api_view(['GET'])
@@ -139,27 +154,4 @@ def property_detail(request, pk, format=None):
         serializer = PropertySerializer(property)
         return Response(serializer.data)
 
-# def weather():
-#     if request.method == 'POST':
-#         city= prop.city
-#         state=request.form.get('selected_state')
-#         try:
-#             response = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={prop.city},{prop.state}&units=imperial&appid=884cfd64f3a52a3354c76c381207cf1e')
-#         except requests.exceptions.RequestException as e:  
-#             print(e)
-#         weather_data = response.json()
-#         location = (weather_data['name'])
-#         long= (weather_data['coord']['lon'])
-#         lat= (weather_data['coord']['lat'])
-#         cur_con = (weather_data['weather'][0]['main'])
-#         cur_dis = (weather_data['weather'][0]['description'])
-#         temp = (int(weather_data['main']['temp']))
-#         feel_temp = (int(weather_data['main']['feels_like']))
-#         min_temp = (int(weather_data['main']['temp_min']))
-#         max_temp = (int(weather_data['main']['temp_max']))
-#         humidity = (weather_data['main']['humidity'])
-#         wind = (weather_data['wind']['speed'])
-        
-#         return render_template('weather.html', weather_data=weather_data, location=location, 
-#         long=long, lat=lat, temp=temp, feel_temp=feel_temp, min_temp=min_temp,
-#         max_temp=max_temp, wind=wind, humidity=humidity, cur_con=cur_con, cur_dis=cur_dis)
+    

@@ -17,4 +17,5 @@ urlpatterns = [
     path('view_props/', views.all_props, name = 'view_props'),
     path('prop_details/<int:id>', views.prop_details, name = 'prop_details'),
     path('api/property/<int:pk>', views.property_detail)
+    
 ]

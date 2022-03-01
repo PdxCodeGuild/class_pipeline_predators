@@ -15,8 +15,8 @@ class Driver(models.Model):
 
 class Property(models.Model):
     code = models.CharField(max_length=10)
-    latX = models.FloatField(max_length=20)
-    lngX = models.FloatField(max_length=20)
+    latitude = models.FloatField(max_length=20)
+    longitude = models.FloatField(max_length=20)
     name = models.CharField(max_length=30)
     phone_num = models.CharField(max_length=20,null=True, blank=True)
     address = models.CharField(max_length=30)
@@ -26,8 +26,8 @@ class Property(models.Model):
     manager = models.CharField(max_length=30)
     brewer = models.CharField(max_length=30)
     delivery = models.CharField(max_length=30)
-    notes = models.TextField(max_length=300)
-    images = models.ImageField
+    notes = models.TextField(max_length=500)
+    images = models.ImageField(upload_to='images/', default='default.jpg')
 
     def __str__(self):
         return self.code
