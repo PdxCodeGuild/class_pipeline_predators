@@ -1,25 +1,34 @@
+let latX = null;
+let lngX = null;
 
-console.log(googleKey)
-const propNum = document.getElementById("title")
-const propertyNum = propNum.getAttribute("prop_num")
-
-fetch(`http://127.0.0.1:8000/api/property/${propertyNum}`)
-  .then(response => response.json())
-  .then(data => {
-    // console.log(data.latitude, data.longitude)
-    const latX= data.latitude
-    const lngX= data.longitude
-    initMap(latX, lngX)
+  window.addEventListener("DOMContentLoaded", (event) => {
+    const propNum = document.getElementById("title");
+    const propertyNum = propNum.getAttribute("prop_num");
+    fetch(`http://127.0.0.1:8000/api/property/${propertyNum}`)
+      .then((response) => response.json())
+      .then((data) => {
+        latX = data.latitude;
+        lngX = data.longitude;
+        googleMaps();
+      });
   });
 
-function initMap(latX, lngX) {
-  const location = { lat: latX, lng: lngX };
+  function initMap() {
+  const position = { lat: latX, lng: lngX };
+ 
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 11,
-    center: location,
+    center: position,
   });
   const marker = new google.maps.Marker({
-    position: location,
+    position: position,
     map: map,
   });
-}   
+}
+  async function googleMaps() {
+    const res = await fetch("http://127.0.0.1:8000/static/key.json");
+    const data = await res.json();
+    let script = document.createElement("script");
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${data.key}`;
+    document.body.append(script);
+  }

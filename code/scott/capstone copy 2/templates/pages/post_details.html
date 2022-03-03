@@ -1,13 +1,20 @@
 {% extends 'base.html' %} {% block content %}
 <div>
-  <a href="{% url 'view_all_posts'%}">
+  <a href="{% url 'view_all_posts' %}">
     <h3>Back to all posts</h3>
   </a>
   <p>
+  {{ post.id }}<br> 
   {{ post.author }}<br>
-  {{post.pub_date}}<br>
+  {{ post.pub_date }}<br>
   {{ post.title }}<br>
   {{ post.text }}
+<p>
+  
+</p>
+  
+
+  <a href="{% url 'post_comment' post.id %}">Comment</a>
   </p>
 </div>
 {% endblock %}
