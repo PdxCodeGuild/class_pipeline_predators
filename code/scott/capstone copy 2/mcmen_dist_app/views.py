@@ -5,10 +5,10 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib import messages
-from mcmen_dist_app.models import Property
+from mcmen_dist_app.models import PostComment, Property
 from mcmen_dist_app.models import Driver
 from mcmen_dist_app.models import Route
-from mcmen_dist_app.models import Article
+from mcmen_dist_app.models import Article, PostComment
 from decouple import config
 # from . models import Image
 #--> Rest
@@ -105,11 +105,11 @@ def all_props(request):
   props = Property.objects.all()
   return render(request, 'pages/view_props.html', {'props': props})
 
-def add_blog_post(request):
+def add_driver_post(request):
     authors = Driver.objects.all()
     context = {'authors': authors} 
     if request.method == 'GET':
-        return render(request, 'pages/add_blog_post.html', context)
+        return render(request, 'pages/add_driver_post.html', context)
     elif request.method == 'POST':
         title = request.POST['title']
         text = request.POST['text']
@@ -123,8 +123,24 @@ def view_all_posts(request):
   return render(request, 'pages/view_posts.html', {'articles': articles})
 
 def post_details(request, id):
-    post = Article.objects.get(id = id)
-    return render(request, 'pages/post_details.html', {"post": post})
+    article = Article.objects.get(id = id)
+    comments = PostComment.objects.filter(article =8)
+    print('Look here',comments)
+    # comments = PostComment.objects.all()
+    return render(request, 'pages/post_details.html', {"article": article})
+
+def add_post_comment(request, id):
+    authors = Driver.objects.all()
+    context = {'authors': authors} 
+    if request.method == 'GET':
+        return render(request, 'pages/add_post_comment.html', context)
+    elif request.method == 'POST':       
+        content = request.POST['content']
+        date_posted = request.POST['date_posted']
+        author = Driver.objects.get(id=request.POST['author'])  
+        post_connected = Article.objects.get(id = request.POST['title'])
+        PostComment.objects.create(author = author, post_connected = post_connected, content = content, date_posted = date_posted)
+        return redirect('view_all_posts')
 
 def prop_details(request, id):
     prop = Property.objects.get(id = id)
@@ -154,4 +170,4 @@ def property_detail(request, pk, format=None):
         serializer = PropertySerializer(property)
         return Response(serializer.data)
 
-    
+

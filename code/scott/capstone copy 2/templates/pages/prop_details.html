@@ -19,16 +19,5 @@ Weather: {{weather.main}}, {{weather.description}} Temp:{{main.temp}}° Low: {{m
 </p>
 
 <div id="map"></div>
-<script>fetch('static/key.json')
-  .then(response => response.json())
-  .then(data => {
-    let script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${data.key}`;
-    document.body.append(script); // (*)
-
-  });</script>
-<!-- <script async
-  src="https://maps.googleapis.com/maps/api/js?key=">
-</script> -->
 
 {% endblock %}

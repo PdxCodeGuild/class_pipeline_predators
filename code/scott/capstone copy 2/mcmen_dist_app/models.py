@@ -49,10 +49,20 @@ class Route(models.Model):
         ordering = ('truck_num',)
 
 class Article(models.Model):
-    author = models.ForeignKey(Driver, on_delete=models.CASCADE) ##if we delete an Author, all articles associated with that author will get deleted. 
+    author = models.ForeignKey(Driver, on_delete=models.CASCADE)
     title = models.CharField(max_length = 20)
-    text = models.TextField(max_length = 500)
+    text = models.TextField(max_length = 300)
     pub_date = models.DateField()
 
     def __str__(self):
         return self.title
+
+class PostComment(models.Model):
+    post_connected = models.ForeignKey(
+        Article, related_name='comments', on_delete=models.CASCADE)
+    author = models.ForeignKey(Driver, on_delete=models.CASCADE)
+    content = models.TextField(max_length = 300)
+    date_posted = models.DateField()
+
+    def __str__(self):
+        return str(self.author) + ', ' + self.post_connected.title[:40]
