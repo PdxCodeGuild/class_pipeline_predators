@@ -16,6 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# I will only use fantasy golf for
+#      - Main blog
+#      - Fantasy golf 
+
+### ------ ToDo -----###
+#   Look into making fantasygolf/ = Home
+#### -------------  ####
+
 urlpatterns = [
     path('fantasygolf/', include('fantasygolf.urls')),
     path('admin/', admin.site.urls),
