@@ -4,12 +4,11 @@
 <div>
   <h3>All Articles</h3>
   {% for post in articles reversed %}
-
   <p>
-  {{post.id}}<br>
   {{post.author}}<br>
   {{post.pub_date}}<br>
-  <a href="{% url 'details' post.id%}">{{post.title}}</a>
+  <a href="{% url 'details' post.id%}">{{post.title}}</a><br>
+  {{post.com_counter}} Comments
   </p>
 
   {% endfor %}

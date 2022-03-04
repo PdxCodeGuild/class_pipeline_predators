@@ -1,4 +1,5 @@
 
+from turtle import title
 from django.shortcuts import render, redirect
 import requests
 from django.contrib.auth import authenticate, login
@@ -83,23 +84,22 @@ def add_route(request):
     props = Property.objects.all()
     drivers = Driver.objects.all()
     context = {'props': props, 'drivers': drivers}
-
     if request.method == 'GET':
         return render(request, 'pages/add_route.html', context) 
     elif request.method == 'POST':
         truck_num = request.POST['truck_num']
         # driver = request.POST.getlist('drivers')
         day = request.POST['day']
-        mech_record = request.POST['mech_record']
-        driver = Driver.objects.get(id=request.POST['drivers'])
+        drivers = Driver.objects.get(id=request.POST['drivers.set()'])
         properties = Property.objects.get(id=request.POST['properties'])
-        Route.objects.create(truck_num = truck_num, driver = driver, 
-        day = day, properties = properties, mech_record = mech_record)
+        Route.objects.create(truck_num = truck_num, drivers = drivers, 
+        day = day, properties = properties)
         return redirect('admin_page')
 
 def all_routes(request):
-  trucks = Route.objects.all()
-  return render(request, 'pages/view_routes.html', {'trucks': trucks})
+  routes = Route.objects.all()
+  print(routes)
+  return render(request, 'pages/view_routes.html', {'routes': routes})
 
 def all_props(request):
   props = Property.objects.all()
@@ -123,23 +123,21 @@ def view_all_posts(request):
   return render(request, 'pages/view_posts.html', {'articles': articles})
 
 def post_details(request, id):
-    article = Article.objects.get(id = id)
-    comments = PostComment.objects.filter(article =8)
-    print('Look here',comments)
-    # comments = PostComment.objects.all()
-    return render(request, 'pages/post_details.html', {"article": article})
-
-def add_post_comment(request, id):
     authors = Driver.objects.all()
-    context = {'authors': authors} 
+    article = Article.objects.get(id = id)
+    comments = PostComment.objects.filter(post_connected=article.id)
+    
     if request.method == 'GET':
-        return render(request, 'pages/add_post_comment.html', context)
-    elif request.method == 'POST':       
+        return render(request, 'pages/post_details.html', {"authors": authors, "article": article, "comments": comments})
+    elif request.method == 'POST':
         content = request.POST['content']
         date_posted = request.POST['date_posted']
         author = Driver.objects.get(id=request.POST['author'])  
-        post_connected = Article.objects.get(id = request.POST['title'])
+        post_connected = article
+        com_counter = PostComment.objects.filter(post_connected=article.id).count()+1
+        print(com_counter)
         PostComment.objects.create(author = author, post_connected = post_connected, content = content, date_posted = date_posted)
+        # Article.objects.create(com_counter = com_counter)
         return redirect('view_all_posts')
 
 def prop_details(request, id):
