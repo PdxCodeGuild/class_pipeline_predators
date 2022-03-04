@@ -37,13 +37,12 @@ class Property(models.Model):
 
 class Route(models.Model):
     truck_num = models.CharField(max_length=10)
-    driver = models.ManyToManyField(Driver)
     day = models.CharField(max_length=10)
+    drivers = models.ManyToManyField(Driver)
     properties = models.ManyToManyField(Property)
-    mech_record = models.TextField(max_length=300)
 
     def __str__(self):
-        return self.truck_num
+        return self.truck_num + ', ' + self.day
 
     class Meta:
         ordering = ('truck_num',)
@@ -53,6 +52,7 @@ class Article(models.Model):
     title = models.CharField(max_length = 20)
     text = models.TextField(max_length = 300)
     pub_date = models.DateField()
+    com_counter = models.CharField(max_length = 100, default = 0)
 
     def __str__(self):
         return self.title

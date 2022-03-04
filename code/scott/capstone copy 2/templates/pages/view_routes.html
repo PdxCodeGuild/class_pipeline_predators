@@ -1,14 +1,14 @@
 {% extends 'base.html' %} {% block content %}
 <a href='/index/'>Index</a><br>
 <h3>All Routes</h3>
-{% for truck in trucks %}
-<p>
-  Truck {{ truck.truck_num }}<br>
-  {{ truck.day }}<br>
-  {{ truck.driver }}<br>
-  {{ truck.properties }}<br>
-  {{ truck.mech_record }}
-</p>
-
+{% for route in routes %}
+  {% for driver in route.drivers_set.all %}
+    {{driver.nick_name}}
+  Truck {{ route.truck_num }}<br>
+  {{ route.day }}<br>
+  {{ route.drivers }}<br>
+  {{ route.properties }}<br>
+  {% endfor %}
+<!-- p2.article_set.all() -->
 {% endfor %}
 {% endblock %}

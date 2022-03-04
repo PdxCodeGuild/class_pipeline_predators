@@ -4,17 +4,41 @@
     <h3>Back to all posts</h3>
   </a>
   <p>
-  {{ post.id }}<br> 
-  {{ post.author }}<br>
-  {{ post.pub_date }}<br>
-  {{ post.title }}<br>
-  {{ post.text }}
-<p>
-  
+    {{ article.author }}<br />
+    {{ article.pub_date }}<br />
+    {{ article.title }}<br />
+    {{ article.text }}
+  </p>
+  {% for comment in comments %}
+  <p>
+  {{ comment.author }}<br />
+  {{ comment.date_posted }}<br />
+  {{ comment.content }}<br />
+  {% endfor %}
 </p>
-  
-
-  <a href="{% url 'post_comment' post.id %}">Comment</a>
+  <p>
+    <div>
+      <form action="{% url 'details' article.id %}" method="POST">
+        {% csrf_token %}
+        <h3>Post a Comment</h3>
+        <div>
+    
+          Comment<br>
+          <textarea rows="3" name="content"></textarea></br>
+          Date<br>
+          <input type="date" name="date_posted" /><br/>
+          
+          Author<br>
+          <select name="author">
+            {%for author in authors%}
+            <option value="{{author.id}}">{{author}}</option>
+            {% endfor %}
+          </select><br><br>
+          <button type="submit">Submit</button>
+     
+        </div>
+      </form>
+    </div>
   </p>
 </div>
 {% endblock %}
