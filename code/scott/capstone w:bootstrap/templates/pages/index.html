@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+<h3>Index</h3>
+
+<a href='/admin/'>Account</a><br><br>
+<a href='/admin_page/'>Admin</a><br><br>
+<a href='/view_routes/'>Routes</a><br><br>
+<a href='/search_routes/'>Search Routes</a><br><br>
+<a href='/view_props/'>Properties</a><br><br>
+<a href='/view_all_posts/'>Driver Log</a><br><br>
+
+<form action="{% url 'logout_user' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" >Logout</button>
+</form>
+
+{% endblock %}
