@@ -1,0 +1,21 @@
+h3 {
+    color:forestgreen;
+}
+.bold {
+    font-weight: bold;
+}
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.alert {
+    color:darkred;
+}
+#map {
+    height: 400px;
+    width: 100%;
+    border-radius: 10px;
+}
+img {
+    max-width: 100%;
+    border-radius: 10px;
+}

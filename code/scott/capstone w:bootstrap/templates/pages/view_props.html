@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block content %}
+<a href='/index/'>Index</a><br>
+<h3>All Properties</h3>
+{% for prop in props %}
+<p>
+<a href="{% url 'prop_details' prop.id%}">{{prop.name}}</a><br>
+{{prop.phone_num}}
+</p>
+{% endfor %}
+{% endblock %}

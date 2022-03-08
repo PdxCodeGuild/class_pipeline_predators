@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block content %}
+<a href='/index/'>Index</a><br>
+<h3>All Routes</h3>
+
+{% for route in routes %}
+<p>Truck {{route.truck_num}} • {{route.day}}<br>
+  Drivers
+  {% for driver in route.drivers.all %}
+  • {{driver}}
+  {% endfor %}
+  <br>
+  Properties
+  {% for property in route.properties.all %}
+  <a href="{% url 'prop_details' property.id%}">• {{property}}</a>
+
+  {% endfor %}
+</p>
+{% endfor %}
+
+{% endblock %}
