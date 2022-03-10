@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container-fluid">
+<h4>All Properties</h4>
+{% for prop in props %}
+<p>
+<a href="{% url 'prop_details' prop.id%}">{{prop.name}}</a><br>
+{{prop.phone_num}}
+</p>
+{% endfor %}
+</div>
+{% endblock %}

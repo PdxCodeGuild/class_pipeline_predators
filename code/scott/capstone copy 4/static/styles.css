@@ -1,0 +1,28 @@
+* {
+    margin: 0px !important;
+
+    padding: 0px !important;
+}
+h3 {
+    color:antiquewhite;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+.bold {
+    font-weight: bold;
+}
+body {
+    background-image: url("/uploaded_files/images/bg_plaid3.jpg");
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.alert {
+    color:crimson;
+}
+#map {
+    height: 400px;
+    max-width: 1000px;
+    border-radius: 10px;
+}
+img {
+    max-width: 1000px;
+    border-radius: 10px;
+}
