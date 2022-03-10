@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container-fluid">
+
+<h4>Search Routes</h4>
+<p>
+<form action="{%url 'search_routes' %}" method="POST">
+    {% csrf_token %}
+
+    Truck Number<br>
+    <select name="truck_num">
+        <option value="1">Truck 1</option>
+        <option value="2">Truck 2</option>
+        <option value="3">Truck 3</option>
+    </select>
+    </p>
+    <p>
+        Day<br>
+        <select name="day">
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+        </select>
+    </p>
+    <p>
+        
+        <button type="submit" class="btn btn-outline-success">Submit</button>
+    </p>
+</form>
+{% for route in day_route %}
+<p>Truck {{route.truck_num}} • {{route.day}}<br>
+    Drivers
+    {% for driver in route.drivers.all %}
+    • {{driver}}
+    {% endfor %}
+    <br>
+    Properties
+    {% for property in route.properties.all %}
+    <a href="{% url 'prop_details' property.id%}">• {{property}}</a>
+
+    {% endfor %}
+</p>
+{% endfor %}
+</p>
+</div>
+{% endblock %}
