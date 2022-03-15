@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView
 
 # I will only use fantasy golf for
 #      - Main blog
@@ -25,6 +26,9 @@ from django.urls import path, include
 #### -------------  ####
 
 urlpatterns = [
+    # Redirect view kind of works like having '' represent home but what it does is 
+    # change the url to append to fantasy golf whenever it is used.
+    path('', RedirectView.as_view(url='fantasygolf/', permanent=True)),
     path('fantasygolf/', include('fantasygolf.urls')),
     path('admin/', admin.site.urls),
 ]
