@@ -1,20 +1,22 @@
 {% extends 'base.html' %} {% block content %}
-<div class="container-fluid">
-<h4>All Routes</h4>
+<div class="container-sm">
+  <div class= p-3>
+    <h3>All Routes</h3>
 
-{% for route in routes %}
-<p>Truck {{route.truck_num}} • {{route.day}}<br>
-  Drivers
-  {% for driver in route.drivers.all %}
-  • {{driver}}
-  {% endfor %}
-  <br>
-  Properties
-  {% for property in route.properties.all %}
-  <a href="{% url 'prop_details' property.id%}">• {{property}}</a>
-
-  {% endfor %}
-</p>
-{% endfor %}
+    {% for route in routes %}
+    <div class="mb-4 form-control bg-secondary text-white bg-opacity-25 border border-secondary">
+      Truck {{route.truck_num}} • {{route.day}}<br>
+      Drivers
+      {% for driver in route.drivers.all %}
+      • {{driver}}
+      {% endfor %}
+      <br>
+      Properties • 
+      {% for property in route.properties.all %}
+      <a href="{% url 'prop_details' property.id%}" class="btn btn-outline-success">{{property}}</a>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}
