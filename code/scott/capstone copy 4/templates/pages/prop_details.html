@@ -1,28 +1,27 @@
 {% extends 'base.html' %} {% block content %}
-<div class="container-fluid">
-
-  <p>
+<div class="container-sm">
+  <div class=p-3>
     Weather: {{weather.main}}, {{weather.description}} Temp:{{main.temp}}° Low: {{main.temp_min}}°
     High:{{main.temp_max}}° Humidity: {{main.humidity}}%
-  </p>
-  <img src="{{ prop.images.url }}">
-  <h1 prop_num={{prop.id}} id="title"></h1>
-  <p>
-    {{ prop.name }}<br>
-    {{ prop.phone_num }}<br>
-    {{ prop.address }}<br>
-    {{ prop.city }}, {{ prop.state }} {{ prop.zipcode }}<br>
-    Manager: {{ prop.manager }}<br>
-    Brewer: {{ prop.brewer }}<br>
-    Deliveries: {{ prop.delivery }}<br>
-  </p>
-  <p>
-    Notes: {{ prop.notes }}
-  </p>
+    </p>
+    <h3>{{ prop.name }}</h3>
+    <img src="{{ prop.images.url }}" class="img-fluid">
+    <h1 prop_num={{prop.id}} id="title"></h1>
+    <p>
+      Ph# {{ prop.phone_num }}<br>
+      {{ prop.address }}<br>
+      {{ prop.city }}, {{ prop.state }} {{ prop.zipcode }}<br>
+      Manager: {{ prop.manager }}<br>
+      Brewer: {{ prop.brewer }}<br>
+      Deliveries: {{ prop.delivery }}<br>
+    </p>
+    <p>
+      Notes: {{ prop.notes }}
+    </p>
 
-  <div id="map"></div><br>
-  
+    <div id="map"></div><br>
+
     <a href="javascript:history.back()" class="btn btn-outline-success">Go Back</a>
-  
+  </div>
 </div>
 {% endblock %}

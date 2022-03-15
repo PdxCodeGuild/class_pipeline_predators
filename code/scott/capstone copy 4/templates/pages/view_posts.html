@@ -1,18 +1,29 @@
 {% extends 'base.html' %} {% block content %}
-<div class="container-fluid">
+<div class="container-sm">
 
-  <div>
-    <h4>All Posts</h4>
+  <div class= p-3>
+    <h3>All Posts</h3>
     {% for post in articles reversed %}
-    <p>
+    <div class= "mb-4 form-control bg-secondary text-white bg-opacity-25 border border-secondary">
       {{post.author}}<br>
       {{post.pub_date}}<br>
       <a href="{% url 'details' post.id%}" class="btn btn-outline-success">{{post.title}}</a><br>
-      {{post.com_counter}}<br>
+      
+      commets here: {{post.comments.all}}<br>
+
       {% for comment in post.comments.all %}
-      • {{comment.com_counter}} Comments
+      • {{comment.date_posted}} Comments
       {% endfor %}
-    </p>
+
+
+      {% for post in articles %}
+      {{post.author}}
+        {% for comment in post.postcomment_set.all %}
+        {{ comment.com_counter}} Hello
+      {% endfor %}
+      {% endfor %}
+
+    </div>
     {% endfor %}
   </div>
 </div>
