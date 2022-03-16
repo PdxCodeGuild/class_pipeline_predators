@@ -31,3 +31,7 @@ class Athlete(models.Model):
         return self.name 
 
 
+class Article(models.Model):
+    title = models.CharField(max_length=200)
+    text = models.TextField(max_length=500)
+    pub_date = models.DateField()

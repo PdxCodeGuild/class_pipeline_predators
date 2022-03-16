@@ -3,6 +3,20 @@
 {% block title %}Crows Nest Disc Golf{% endblock %}
 
 {% block content %}
-<H1>Index successfuly extends base.html</H1>
+<form action="{%url 'index'%}" method="POST">
+    {%csrf_token%}
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Title</label>
+        <input name="title" type="text" class="form-control" id="title" aria-describedby="titleHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Text</label>
+        <input name="text" type="text" class="form-control" id="text" aria-describedby="textHelp">
+    </div>
+    <div class="mb-3">
+        <label for="pub_date" class="form-label">Publication Date</label>
+        <input name="pub_date" type="date" class="form-control" id="date" aria-describedby="pub_date">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 {% endblock %}
-
