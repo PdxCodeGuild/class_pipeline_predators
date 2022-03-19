@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Burrito Lab</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Burrito Order Form</h1>
+    <img src="images/burrito2.jpeg" style="width: 650px" />
+    <h2>Customize Your Burrito</h2>
+    <h3 class="details">Burrito Details</h3>
+    <h3 class="included">Included In Your Burrito</h3>
+
+    <p>
+    <h4>Tortillas:</h4>
+      <form>
+        <label class="radio-inline">
+        <input type="radio" name="optradio" checked>White Flour
+        </label>
+        <label class="radio-inline">
+        <input type="radio" name="optradio">Wheat Flour
+        </label>
+        <label class="radio-inline">
+        <input type="radio" name="optradio">Spinach
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="optradio">Corn
+          </label>
+        </form>
+      </p>
+
+
+      <p>
+          <h4>Meat:</h4>
+          <form>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="">Carnitas
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="">Chicken
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="">Sofritos (Tofu)
+            </label>
+          </form>
+      </p>
+
+      <p>
+        <form>
+          <input type="checkbox" id="extras1" name="extras1" value="Beans">
+          <label for="extras1"> Beans </label><br>
+          <input type="checkbox" id="extras2" name="extras2" value="Cheese">
+          <label for="extras2"> Cheese</label><br>
+          <input type="checkbox" id="extras3" name="extras3" value="Salsa">
+          <label for="extras3"> Salsa</label><br>
+          <input type="checkbox" id="extras4" name="extras4" value="Sour Cream">
+          <label for="extras4"> Sour Cream</label><br><br>
+        </form>
+      </p>
+  </body>
+</html>
