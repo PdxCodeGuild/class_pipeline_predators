@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Welcome! {{request.user}}</h1>
+{%for player in user_players%}
+<div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{player.first_name}}</h5>
+      <p class="card-text">{{player.points}}</p>
+      <a href="#" class="btn btn-primary">Remove`</a>
+    </div>
+  </div>
+{%endfor%}  
+{% endblock %}

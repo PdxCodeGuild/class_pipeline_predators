@@ -1,34 +1,24 @@
-import datetime 
+import datetime
+from re import T
+import django 
 
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
-#Class player is basically for the user
-
-class Player(models.Model):
-    name = models.CharField(max_length=200)
-    email = models.CharField(max_length=200)
-
-    def __str__(self):
-        return self.name
     
- 
- #Class event is for the events the athletes play in 
-
-class Event(models.Model):
-    name = models.CharField(max_length=200)
-
-
 
 #Class athlete is for the disc-golfer/golfer
 
 class Athlete(models.Model):
-    name = models.CharField(max_length=200)
-    events_played_in = models.ForeignKey( Event , on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
+    points = models.IntegerField(null=True)
+    user = models.ForeignKey(User, on_delete=models.PROTECT, null=True, blank=True)
     
 
     def __str__(self):
-        return self.name 
+        return self.first_name 
 
 
 class Article(models.Model):
