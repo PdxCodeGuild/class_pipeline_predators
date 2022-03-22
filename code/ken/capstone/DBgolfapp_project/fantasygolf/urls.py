@@ -20,6 +20,8 @@ urlpatterns = [
     #profile
     path('profile/', views.get_profile, name = 'profile'),
     #method for adding team
-    path('add/<int:id>', views.add_team, name = 'add')
+    path('add/<int:id>', views.add_team, name = 'add'),
+    #method to remove athlete from profile 
+    path('remove/<int:id>', views.remove_player, name='remove')
 
 ]

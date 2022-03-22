@@ -15,7 +15,7 @@ class Athlete(models.Model):
     last_name = models.CharField(max_length=200)
     points = models.IntegerField(null=True)
     user = models.ForeignKey(User, on_delete=models.PROTECT, null=True, blank=True)
-    
+    image = models.ImageField(upload_to ='images/')
 
     def __str__(self):
         return self.first_name 

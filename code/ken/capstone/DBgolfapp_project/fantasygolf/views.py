@@ -40,3 +40,11 @@ def add_team(request,id):
      player.user = user
      player.save()
      return redirect('player_card')
+
+def remove_player(request,id):
+    player = Athlete.objects.get(id = id)
+    print(player)
+    team = Athlete.objects.filter(user = request.user)
+    print(team)
+    #team.delete()
+    return redirect('profile')
