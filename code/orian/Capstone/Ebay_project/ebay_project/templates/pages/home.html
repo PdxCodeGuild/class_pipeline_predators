@@ -1,0 +1,80 @@
+{% extends 'base.html' %} {% block content %}
+{% load static %}
+<h2 class='text-center'>Vintage Honda eBay Parts Finder</h2>
+<div class="container text-center">
+  <div class="row justify-content-start"> 
+    <div class="col align-self-center">
+      <img style="max-height: 400px;" src="{% static 'ebaymotors/speedometer_tach.jpg' %}"  alt="Responsive image">
+
+    </div>
+  </div>
+  <!-- <img src="https://sp-ao.shortpixel.ai/client/q_glossy,ret_img,w_800/https://journal.classiccars.com/media/2021/04/Princes-car-and-motorcycle-collection-InsideHook-800x420.jpg" alt=""> -->
+</div>
+<div class='container text-center' id='image_search'>
+  <form action="{% url 'home' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <h4>Make</h4>
+      <input type="text" name="make_id" class="form-control" id="make" required='required'>
+      <h4>Model</h4>
+      <input type="text" name="model_id" class="form-control" id="model" required='required'>
+      <h4>Year</h4>
+      <input type="text" name="year_id" class="form-control" id="year" required='required'>
+      <h4>Keyword Search for Parts:</h4>
+      <input type="text" class="form-control" id="search" aria-describedby="search" name="searchbar" required='required'
+        placeholder="Search Product">
+    </div>
+
+    <div class="form-group">
+      <h5>New or Used:</h5>
+      <select class="form-control" name='condition' required='required'>
+        <option>New</option>
+        <option>Used</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+</div>
+<h4 class="text-center bg-dark text-white mt-4">Results</h4>
+<div class="container text-center">
+  {% for item in search_results %}
+<div class="row my-2 justify-content-center">
+  <div class="col-4">
+    <div class="card" style="width: 18rem;">
+      <img src="{{item.galleryURL}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"> {{item.title}}</h5>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        <p class="price"> Price: ${{item.sellingStatus.currentPrice.value}}</p>
+        <p class="condition"> Condtion: {{item.condition.conditionDisplayName}}</p>
+        <p class="bin">{% if item.listinginfo.buyitnowavailible == true %}
+          <a class="btn btn-secondary btn-lg" href="{{item.viewItemURL}}" target="_blank">Buy It Now</a>
+          {% endif %}
+        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- <tbody>
+
+    <td class="image-container">
+      <img src="{{item.galleryURL}}" boarder="0">
+    </td>
+    <td class="data-container">
+      <p class="title">Title: {{item.title}} </p> -->
+      <!-- <p class="subtitle">' + subtitle + </p> -->
+      <!-- <p class="price"> Price: ${{item.sellingStatus.currentPrice.value}}</p>
+      <p class="condition"> Condtion: {{item.condition.conditionDisplayName}}</p>
+      <p class="bin">{% if item.listinginfo.buyitnowavailible == true %}
+        <a class="btn btn-secondary btn-lg" href="{{item.viewItemURL}}" target="_blank">Buy It Now</a>
+        {% endif %}
+      </p>
+
+    </td>
+  </tbody>
+  <hr> -->
+  {% empty %}
+  {% endfor %}
+</div>
+{% endblock %}

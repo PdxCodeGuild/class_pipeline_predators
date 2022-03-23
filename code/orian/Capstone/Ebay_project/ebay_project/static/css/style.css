@@ -1,0 +1,45 @@
+
+body{   
+     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+ }
+h1 { 
+     color: white; font-weight: normal; font-size: 24px; margin: 0; margin-left: 5px;
+ } 
+ h2{
+      color: #777
+ }
+tr { 
+     border-bottom: 1px solid #CCC; padding: 15px 0;  }
+td{border: 3px, #777; }
+tbody{display: inline-table; border: #777 3px; padding: auto;}
+.image-container {
+       text-align: center;
+    }
+.data-container { 
+        vertical-align: top; padding-left: 15px;
+    } 
+p { 
+         margin: 0 0 5px; } 
+.item-link, .item-link:hover, .item-link:visited, .item-link:active {
+    text-decoration: none; color: #333; 
+} 
+.title {
+     color: #5786bd; font-weight: bold; margin-bottom: 10px;
+     }
+.subtitle {
+     color: #777; 
+     } 
+.condition {
+     color: #777; 
+     } 
+.price {
+     color: #333; font-weight: bold;
+     } 
+.bin {
+     color: #777; font-size: 12px;
+     } 
+.fs { font-weight: bold; } 
+/* #image_search{
+     background-image: url('/ebay_project/static/images/speedometer_tach.jpeg');
+} */
+.img-fluid{text-align: center; max-width: 100%;}
